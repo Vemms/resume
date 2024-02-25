@@ -1,0 +1,161 @@
+body{
+    color: #40514e;
+    margin: 0;
+    text-align: center;
+    font-family: 'merriweather', serif;
+}
+
+.top-container{
+    padding-top: 60px;
+    background-color: azure;
+    position: relative;
+}
+
+.top-cloud{
+    position: absolute;
+    right: 220px;
+    top: 60px;
+}
+
+.bottom-cloud{
+    position: absolute;
+    left: 250px;
+    bottom: 450px;
+}
+
+.mountain{
+    width: 60%;
+}
+h1{
+    line-height: 2;
+    color: #66BFBF;
+    font-size: 5.2rem;
+    margin: 50px auto 0px auto;
+    font-family: 'sacramento', cursive;
+} 
+
+
+.middle-container{
+    margin: 100px auto;
+}
+
+.programming{
+    float: left;
+    width: 25%;
+    margin-right: 30px;
+}
+
+.photography{
+    float: right;
+    width: 25%;
+    border-radius: 100%;
+    margin-left: 30px;
+}
+
+.graphic-designing{
+    float: left;
+    width: 25%;
+    margin-right: 30px;
+}
+
+.song-writing{
+    float: right;
+    width: 25%;
+    border-radius: 100%;
+    margin-left: 30px;
+}
+.skill-row{
+    width: 50%;
+    margin: 25px auto 100px;
+    text-align: left;
+    line-height: 2;
+}
+
+.contact-me{
+    width: 75%;
+    margin: 80px auto 50px;
+    line-height: 2;
+}
+.profile{
+    width: 50%;
+    margin: 100px auto 80px;
+    line-height: 2;
+}
+
+.linkedin{
+    width: 3%;
+}
+
+.whatsapp{
+    width: 3%;
+}
+
+.x{
+    width: 3%;
+}
+
+.instagram{
+    width: 3%;
+}
+
+
+button{
+    background-color: lightseagreen;
+    font-size: large;
+}
+
+hr{
+    border-width: 10px;
+    border-top: 0;
+    border-style: dotted;
+    width: 5%;
+    color: darkgrey;
+}
+
+.skills{
+    margin: 80px auto 0px;
+}
+
+.bottom-container{
+    background-color: #1B3C73;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+h2{
+    margin-top: 0px;
+    font-weight: normal;
+    color: #66BFBF;
+    font-family: 'montserrat', sans-serif;
+    margin: 10px auto;
+}
+
+h3{
+    color: #11999E;
+    font-family: 'montserrat', sans-serif;
+    margin: 10px auto;
+}
+
+h4{
+    color: #66BFBF;
+    margin-top: 0px;
+}
+a{
+    color: #11999E;
+}
+
+.profile-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.top-span{
+    text-decoration: underline;
+}
+
+.trademark{
+    color: #11999E;
+    margin-top: 50px;
+}
+
