@@ -159,3 +159,93 @@ a{
     margin-top: 50px;
 }
 
+/* Beautiful gradient background and font smoothing */
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Card-style containers for main sections */
+.middle-container, .top-container, .bottom-container {
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  background: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+/* Stylish headings */
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #4e54c8;
+  margin-bottom: 0.5em;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Highlighted and interactive skill rows */
+.skill-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #f7fafc;
+  box-shadow: 0 2px 8px rgba(78,84,200,0.07);
+  transition: transform 0.2s;
+}
+.skill-row:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #e0e7ff;
+}
+.skill-row img {
+  margin-right: 2rem;
+  width: 72px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Animated button */
+.btn button {
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);
+  color: #fff;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(78,84,200,0.14);
+}
+.btn button:hover {
+  box-shadow: 0 6px 16px rgba(78,84,200,0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Footer icons with hover effect */
+.footer-link img {
+  width: 32px;
+  margin: 0 12px;
+  transition: transform 0.2s, filter 0.2s;
+  filter: grayscale(80%);
+}
+.footer-link img:hover {
+  transform: scale(1.2) rotate(-8deg);
+  filter: none;
+}
+.trademark {
+  text-align: center;
+  color: #4e54c8;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
