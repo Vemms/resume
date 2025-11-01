@@ -1,251 +1,438 @@
-body{
-    color: #40514e;
-    margin: 0;
-    text-align: center;
-    font-family: 'merriweather', serif;
+/* === Base Reset === */
+html {
+  scroll-behavior: smooth;
 }
 
-.top-container{
-    padding-top: 60px;
-    background-color: azure;
-    position: relative;
-}
-
-.top-cloud{
-    position: absolute;
-    right: 220px;
-    top: 60px;
-}
-
-.bottom-cloud{
-    position: absolute;
-    left: 250px;
-    bottom: 450px;
-}
-
-.mountain{
-    width: 60%;
-}
-h1{
-    line-height: 2;
-    color: #66BFBF;
-    font-size: 5.2rem;
-    margin: 50px auto 0px auto;
-    font-family: 'sacramento', cursive;
-} 
-
-
-.middle-container{
-    margin: 100px auto;
-}
-
-.programming{
-    float: left;
-    width: 25%;
-    margin-right: 30px;
-}
-
-.photography{
-    float: right;
-    width: 25%;
-    border-radius: 100%;
-    margin-left: 30px;
-}
-
-.graphic-designing{
-    float: left;
-    width: 25%;
-    margin-right: 30px;
-}
-
-.song-writing{
-    float: right;
-    width: 25%;
-    border-radius: 100%;
-    margin-left: 30px;
-}
-.skill-row{
-    width: 50%;
-    margin: 25px auto 100px;
-    text-align: left;
-    line-height: 2;
-}
-
-.contact-me{
-    width: 75%;
-    margin: 80px auto 50px;
-    line-height: 2;
-}
-.profile{
-    width: 50%;
-    margin: 100px auto 80px;
-    line-height: 2;
-}
-
-.linkedin{
-    width: 3%;
-}
-
-.whatsapp{
-    width: 3%;
-}
-
-.x{
-    width: 3%;
-}
-
-.instagram{
-    width: 3%;
-}
-
-
-button{
-    background-color: lightseagreen;
-    font-size: large;
-}
-
-hr{
-    border-width: 10px;
-    border-top: 0;
-    border-style: dotted;
-    width: 5%;
-    color: darkgrey;
-}
-
-.skills{
-    margin: 80px auto 0px;
-}
-
-.bottom-container{
-    background-color: #1B3C73;
-    padding-top: 50px;
-    padding-bottom: 10px;
-}
-
-h2{
-    margin-top: 0px;
-    font-weight: normal;
-    color: #66BFBF;
-    font-family: 'montserrat', sans-serif;
-    margin: 10px auto;
-}
-
-h3{
-    color: #11999E;
-    font-family: 'montserrat', sans-serif;
-    margin: 10px auto;
-}
-
-h4{
-    color: #66BFBF;
-    margin-top: 0px;
-}
-a{
-    color: #11999E;
-}
-
-.profile-pic{
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-}
-
-.top-span{
-    text-decoration: underline;
-}
-
-.trademark{
-    color: #11999E;
-    margin-top: 50px;
-}
-
-/* Beautiful gradient background and font smoothing */
 body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  margin: 0;
+  background: #fdfdfd;
+  text-align: center;
 }
 
-/* Card-style containers for main sections */
-.middle-container, .top-container, .bottom-container {
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-  background: #fff;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 900px;
+body {
+  transition: background 1.5s ease, color 0.4s ease, filter 0.8s ease;
 }
 
-/* Stylish headings */
-h1, h2, h3 {
-  font-family: 'Merriweather', serif;
-  font-weight: 700;
-  color: #4e54c8;
-  margin-bottom: 0.5em;
-}
-h1 {
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2.2rem;
-}
-h3 {
-  font-size: 1.5rem;
+/* === Animation Classes === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.2s ease-out forwards;
 }
 
-/* Highlighted and interactive skill rows */
-.skill-row {
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+.delay {
+  animation-delay: 0.4s;
+}
+
+.pop {
+  transform: scale(0.9);
+  opacity: 0;
+  animation: popIn 1s ease-out forwards;
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hover-bounce:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}
+
+/* === Keyframes === */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* === Buttons & Links === */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #00d4ff, #007bff);
+}
+
+/* === Footer === */
+.footer-link img {
+  width: 36px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Optional aesthetic: */
+.trademark {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ==========================
+   🌙 DARK MODE
+========================== */
+:root {
+  --bg-light: linear-gradient(180deg, #e0f7fa, #ffffff);
+  --bg-dark: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  --text-light: #333;
+  --text-dark: #f5f5f5;
+  --accent: #00b4d8;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode a,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: var(--text-dark);
+}
+
+/* Button Styling */
+.dark-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-toggle {
+  background: none;
+  border: 2px solid var(--text-light);
+  color: var(--text-light);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+body.dark-mode #theme-toggle {
+  color: var(--text-dark);
+  border-color: var(--text-dark);
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Footer adjustment */
+body.dark-mode footer {
+  background: #12151a;
+}
+
+/* Smooth animation */
+body,
+header,
+main,
+footer {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+/* ==========================
+   🌗 Custom Dark Mode Switch
+========================== */
+
+.dark-toggle {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 100;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #74ebd5, #9face6);
+  border-radius: 50px;
+  transition: background 0.4s ease;
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: #f7fafc;
-  box-shadow: 0 2px 8px rgba(78,84,200,0.07);
-  transition: transform 0.2s;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 18px;
 }
-.skill-row:hover {
-  transform: translateY(-3px) scale(1.02);
-  background: #e0e7ff;
+
+.slider .icon {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.skill-row img {
-  margin-right: 2rem;
-  width: 72px;
+
+.slider .sun {
+  color: #ffd93b;
+}
+
+.slider .moon {
+  color: #cfd9df;
+}
+
+/* Ball (inner knob) */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Animated button */
-.btn button {
-  background: linear-gradient(90deg, #4e54c8, #8f94fb);
-  color: #fff;
-  padding: 0.8em 2em;
-  border: none;
-  border-radius: 32px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: box-shadow 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(78,84,200,0.14);
-}
-.btn button:hover {
-  box-shadow: 0 6px 16px rgba(78,84,200,0.18);
-  transform: translateY(-2px) scale(1.04);
+/* When checked (Dark Mode Active) */
+.theme-switch input:checked + .slider {
+  background: linear-gradient(45deg, #141e30, #243b55);
 }
 
-/* Footer icons with hover effect */
-.footer-link img {
-  width: 32px;
-  margin: 0 12px;
-  transition: transform 0.2s, filter 0.2s;
-  filter: grayscale(80%);
+.theme-switch input:checked + .slider::before {
+  transform: translateX(26px);
 }
-.footer-link img:hover {
-  transform: scale(1.2) rotate(-8deg);
-  filter: none;
+
+.theme-switch input:checked + .slider .moon {
+  opacity: 1;
+  transform: scale(1);
 }
-.trademark {
-  text-align: center;
-  color: #4e54c8;
-  margin-top: 1.5rem;
-  font-size: 1rem;
+
+.theme-switch input:not(:checked) + .slider .sun {
+  opacity: 1;
+  transform: scale(1);
 }
+
+/* Add glow effect */
+.theme-switch input:checked + .slider .moon {
+  text-shadow: 0 0 10px #b3e5fc;
+}
+
+.theme-switch input:not(:checked) + .slider .sun {
+  text-shadow: 0 0 10px #ffe082;
+}
+
+/* ==========================
+   🌅 Gradient Transition Animation
+========================== */
+
+body {
+  background: var(--bg-light);
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background 1.5s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background: var(--bg-dark);
+}
+
+/* ==========================
+   🌄 TIME-BASED GRADIENT BACKGROUNDS
+========================== */
+
+body {
+  background: var(--bg-light);
+  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: bgShift 20s ease infinite;
+  transition: background 1.5s ease, color 0.4s ease;
+}
+
+/* Sunrise (5 AM - 8 AM) */
+body.sunrise {
+  background: linear-gradient(180deg, #fbc2eb, #a6c1ee);
+}
+
+/* Daytime (9 AM - 4 PM) */
+body.daytime {
+  background: linear-gradient(180deg, #89f7fe, #66a6ff);
+}
+
+/* Sunset (5 PM - 7 PM) */
+body.sunset {
+  background: linear-gradient(180deg, #fcb69f, #ffecd2);
+}
+
+/* Night (8 PM - 4 AM) */
+body.night {
+  background: linear-gradient(180deg, #141e30, #243b55, #2c5364);
+  color: #e0e0e0;
+}
+
+/* Subtle background animation */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.dark-mode {
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364) !important;
+  color: #f5f5f5;
+}
+/* Optional: add a slow gradient movement (dynamic sky) */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  animation: bgShift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+.theme-switch input:checked + .slider {
+  background: linear-gradient(45deg, #141e30, #243b55, #283e51);
+  box-shadow: 0 0 10px #90caf9;
+}
+
+/* ==========================
+   🌤️ FLOATING SKY OBJECT (REALTIME + PARALLAX)
+========================== */
+
+#sky-object {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
+}
+
+#sky-object .sun,
+#sky-object .moon {
+  position: absolute;
+  font-size: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease, top 1s ease;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+}
+
+/* Sun styling */
+#sky-object .sun {
+  color: #ffd93b;
+  opacity: 0;
+}
+
+/* Moon styling */
+#sky-object .moon {
+  color: #cfd9df;
+  opacity: 0;
+}
+
+/* Active state (visible) */
+#sky-object .active {
+  opacity: 1;
+}
+
+/* Glow and highlights */
+#sky-object .sun.active {
+  text-shadow: 0 0 20px #ffe082, 0 0 30px #ffb300;
+}
+
+#sky-object .moon.active {
+  text-shadow: 0 0 25px #90caf9, 0 0 40px #bbdefb;
+}
+
+/* Subtle floating up and down */
+@keyframes float {
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+#sky-object .sun.active,
+#sky-object .moon.active {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animation movement (we’ll handle X position via JS) */
+#sky-object .active {
+  opacity: 1;
+}
+
+/* Subtle glow */
+#sky-object .sun.active {
+  text-shadow: 0 0 20px #ffe082;
+}
+
+#sky-object .moon.active {
+  text-shadow: 0 0 25px #90caf9;
+}
+
+#sky-object .sun,
+#sky-object .moon {
+  transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease;
+}
+
