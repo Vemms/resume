@@ -1,0 +1,437 @@
+/* === Base Reset === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  margin: 0;
+  background: #fdfdfd;
+  text-align: center;
+}
+
+body {
+  transition: background 1.5s ease, color 0.4s ease, filter 0.8s ease;
+}
+
+/* === Animation Classes === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+.delay {
+  animation-delay: 0.4s;
+}
+
+.pop {
+  transform: scale(0.9);
+  opacity: 0;
+  animation: popIn 1s ease-out forwards;
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hover-bounce:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}
+
+/* === Keyframes === */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* === Buttons & Links === */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #00d4ff, #007bff);
+}
+
+/* === Footer === */
+.footer-link img {
+  width: 36px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Optional aesthetic: */
+.trademark {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ==========================
+   🌙 DARK MODE
+========================== */
+:root {
+  --bg-light: linear-gradient(180deg, #e0f7fa, #ffffff);
+  --bg-dark: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  --text-light: #333;
+  --text-dark: #f5f5f5;
+  --accent: #00b4d8;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode a,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: var(--text-dark);
+}
+
+/* Button Styling */
+.dark-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-toggle {
+  background: none;
+  border: 2px solid var(--text-light);
+  color: var(--text-light);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+body.dark-mode #theme-toggle {
+  color: var(--text-dark);
+  border-color: var(--text-dark);
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Footer adjustment */
+body.dark-mode footer {
+  background: #12151a;
+}
+
+/* Smooth animation */
+body,
+header,
+main,
+footer {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+/* ==========================
+   🌗 Custom Dark Mode Switch
+========================== */
+
+.dark-toggle {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 100;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #74ebd5, #9face6);
+  border-radius: 50px;
+  transition: background 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 18px;
+}
+
+.slider .icon {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slider .sun {
+  color: #ffd93b;
+}
+
+.slider .moon {
+  color: #cfd9df;
+}
+
+/* Ball (inner knob) */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* When checked (Dark Mode Active) */
+.theme-switch input:checked + .slider {
+  background: linear-gradient(45deg, #141e30, #243b55);
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.theme-switch input:checked + .slider .moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.theme-switch input:not(:checked) + .slider .sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Add glow effect */
+.theme-switch input:checked + .slider .moon {
+  text-shadow: 0 0 10px #b3e5fc;
+}
+
+.theme-switch input:not(:checked) + .slider .sun {
+  text-shadow: 0 0 10px #ffe082;
+}
+
+/* ==========================
+   🌅 Gradient Transition Animation
+========================== */
+
+body {
+  background: var(--bg-light);
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background 1.5s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background: var(--bg-dark);
+}
+
+/* ==========================
+   🌄 TIME-BASED GRADIENT BACKGROUNDS
+========================== */
+
+body {
+  background: var(--bg-light);
+  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: bgShift 20s ease infinite;
+  transition: background 1.5s ease, color 0.4s ease;
+}
+
+/* Sunrise (5 AM - 8 AM) */
+body.sunrise {
+  background: linear-gradient(180deg, #fbc2eb, #a6c1ee);
+}
+
+/* Daytime (9 AM - 4 PM) */
+body.daytime {
+  background: linear-gradient(180deg, #89f7fe, #66a6ff);
+}
+
+/* Sunset (5 PM - 7 PM) */
+body.sunset {
+  background: linear-gradient(180deg, #fcb69f, #ffecd2);
+}
+
+/* Night (8 PM - 4 AM) */
+body.night {
+  background: linear-gradient(180deg, #141e30, #243b55, #2c5364);
+  color: #e0e0e0;
+}
+
+/* Subtle background animation */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.dark-mode {
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364) !important;
+  color: #f5f5f5;
+}
+/* Optional: add a slow gradient movement (dynamic sky) */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  animation: bgShift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+.theme-switch input:checked + .slider {
+  background: linear-gradient(45deg, #141e30, #243b55, #283e51);
+  box-shadow: 0 0 10px #90caf9;
+}
+
+/* ==========================
+   🌤️ FLOATING SKY OBJECT (REALTIME + PARALLAX)
+========================== */
+
+#sky-object {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
+}
+
+#sky-object .sun,
+#sky-object .moon {
+  position: absolute;
+  font-size: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease, top 1s ease;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+}
+
+/* Sun styling */
+#sky-object .sun {
+  color: #ffd93b;
+  opacity: 0;
+}
+
+/* Moon styling */
+#sky-object .moon {
+  color: #cfd9df;
+  opacity: 0;
+}
+
+/* Active state (visible) */
+#sky-object .active {
+  opacity: 1;
+}
+
+/* Glow and highlights */
+#sky-object .sun.active {
+  text-shadow: 0 0 20px #ffe082, 0 0 30px #ffb300;
+}
+
+#sky-object .moon.active {
+  text-shadow: 0 0 25px #90caf9, 0 0 40px #bbdefb;
+}
+
+/* Subtle floating up and down */
+@keyframes float {
+  0% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-10px); }
+  100% { transform: translateY(-50%) translateY(0); }
+}
+
+#sky-object .sun.active,
+#sky-object .moon.active {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animation movement (we’ll handle X position via JS) */
+#sky-object .active {
+  opacity: 1;
+}
+
+/* Subtle glow */
+#sky-object .sun.active {
+  text-shadow: 0 0 20px #ffe082;
+}
+
+#sky-object .moon.active {
+  text-shadow: 0 0 25px #90caf9;
+}
+
+#sky-object .sun,
+#sky-object .moon {
+  transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease;
+}
