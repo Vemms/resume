@@ -1,21 +1,88 @@
-/* === Base Reset === */
+/* ==========================
+   ⚙️ BASE RESET
+========================== */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  color: #333;
+  color: var(--text-light);
   margin: 0;
-  background: #fdfdfd;
   text-align: center;
-}
-
-body {
+  background: var(--bg-light);
+  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: bgShift 15s ease infinite;
   transition: background 1.5s ease, color 0.4s ease, filter 0.8s ease;
 }
 
-/* === Animation Classes === */
+header,
+main,
+footer {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ==========================
+   🎨 THEME VARIABLES
+========================== */
+:root {
+  --bg-light: linear-gradient(180deg, #e0f7fa, #ffffff);
+  --bg-dark: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  --text-light: #333;
+  --text-dark: #f5f5f5;
+  --accent: #00b4d8;
+}
+
+/* ==========================
+   🌙 DARK MODE
+========================== */
+body.dark-mode {
+  background: var(--bg-dark) !important;
+  color: var(--text-dark);
+}
+
+body.dark-mode a,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: var(--text-dark);
+}
+
+body.dark-mode footer {
+  background: #12151a;
+}
+
+/* ==========================
+   🌄 TIME-BASED GRADIENT BACKGROUNDS
+========================== */
+body.sunrise {
+  background: linear-gradient(180deg, #fbc2eb, #a6c1ee);
+}
+
+body.daytime {
+  background: linear-gradient(180deg, #89f7fe, #66a6ff);
+}
+
+body.sunset {
+  background: linear-gradient(180deg, #fcb69f, #ffecd2);
+}
+
+body.night {
+  background: linear-gradient(180deg, #141e30, #243b55, #2c5364);
+  color: #e0e0e0;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==========================
+   ✨ ANIMATION CLASSES
+========================== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -39,42 +106,34 @@ body {
 }
 
 .float {
-  animation: float 4s ease-in-out infinite;
+  animation: cloudFloat 4s ease-in-out infinite;
 }
 
 .hover-bounce:hover {
   transform: translateY(-5px);
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-/* === Keyframes === */
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes popIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes float {
+@keyframes cloudFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-/* === Buttons & Links === */
+/* ==========================
+   🔘 BUTTONS & LINKS
+========================== */
 .btn {
   display: inline-block;
   padding: 12px 28px;
@@ -90,14 +149,15 @@ body {
   background: linear-gradient(90deg, #00d4ff, #007bff);
 }
 
-/* === Footer === */
+/* ==========================
+   👣 FOOTER
+========================== */
 .footer-link img {
   width: 36px;
   margin: 0 10px;
   transition: transform 0.3s ease;
 }
 
-/* Optional aesthetic: */
 .trademark {
   margin-top: 10px;
   font-size: 0.9rem;
@@ -105,86 +165,8 @@ body {
 }
 
 /* ==========================
-   🌙 DARK MODE
+   🌗 DARK MODE SWITCH (the actual working toggle)
 ========================== */
-:root {
-  --bg-light: linear-gradient(180deg, #e0f7fa, #ffffff);
-  --bg-dark: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
-  --text-light: #333;
-  --text-dark: #f5f5f5;
-  --accent: #00b4d8;
-}
-
-body {
-  background: var(--bg-light);
-  color: var(--text-light);
-  transition: background 0.4s ease, color 0.4s ease;
-}
-
-body.dark-mode {
-  background: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-body.dark-mode a,
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p {
-  color: var(--text-dark);
-}
-
-/* Button Styling */
-.dark-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-#theme-toggle {
-  background: none;
-  border: 2px solid var(--text-light);
-  color: var(--text-light);
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#theme-toggle:hover {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-}
-
-body.dark-mode #theme-toggle {
-  color: var(--text-dark);
-  border-color: var(--text-dark);
-}
-
-body.dark-mode #theme-toggle:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-/* Footer adjustment */
-body.dark-mode footer {
-  background: #12151a;
-}
-
-/* Smooth animation */
-body,
-header,
-main,
-footer {
-  transition: background 0.4s ease, color 0.4s ease;
-}
-/* ==========================
-   🌗 Custom Dark Mode Switch
-========================== */
-
 .dark-toggle {
   position: absolute;
   top: 20px;
@@ -230,13 +212,14 @@ footer {
 
 .slider .sun {
   color: #ffd93b;
+  text-shadow: 0 0 10px #ffe082;
 }
 
 .slider .moon {
   color: #cfd9df;
+  text-shadow: 0 0 10px #b3e5fc;
 }
 
-/* Ball (inner knob) */
 .slider::before {
   content: "";
   position: absolute;
@@ -250,9 +233,9 @@ footer {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* When checked (Dark Mode Active) */
 .theme-switch input:checked + .slider {
-  background: linear-gradient(45deg, #141e30, #243b55);
+  background: linear-gradient(45deg, #141e30, #243b55, #283e51);
+  box-shadow: 0 0 10px #90caf9;
 }
 
 .theme-switch input:checked + .slider::before {
@@ -269,95 +252,9 @@ footer {
   transform: scale(1);
 }
 
-/* Add glow effect */
-.theme-switch input:checked + .slider .moon {
-  text-shadow: 0 0 10px #b3e5fc;
-}
-
-.theme-switch input:not(:checked) + .slider .sun {
-  text-shadow: 0 0 10px #ffe082;
-}
-
 /* ==========================
-   🌅 Gradient Transition Animation
+   🌤️ FLOATING SKY OBJECT (sun/moon, realtime + parallax)
 ========================== */
-
-body {
-  background: var(--bg-light);
-  background-attachment: fixed;
-  background-size: cover;
-  transition: background 1.5s ease, color 0.4s ease;
-}
-
-body.dark-mode {
-  background: var(--bg-dark);
-}
-
-/* ==========================
-   🌄 TIME-BASED GRADIENT BACKGROUNDS
-========================== */
-
-body {
-  background: var(--bg-light);
-  background-attachment: fixed;
-  background-size: 200% 200%;
-  animation: bgShift 20s ease infinite;
-  transition: background 1.5s ease, color 0.4s ease;
-}
-
-/* Sunrise (5 AM - 8 AM) */
-body.sunrise {
-  background: linear-gradient(180deg, #fbc2eb, #a6c1ee);
-}
-
-/* Daytime (9 AM - 4 PM) */
-body.daytime {
-  background: linear-gradient(180deg, #89f7fe, #66a6ff);
-}
-
-/* Sunset (5 PM - 7 PM) */
-body.sunset {
-  background: linear-gradient(180deg, #fcb69f, #ffecd2);
-}
-
-/* Night (8 PM - 4 AM) */
-body.night {
-  background: linear-gradient(180deg, #141e30, #243b55, #2c5364);
-  color: #e0e0e0;
-}
-
-/* Subtle background animation */
-@keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body.dark-mode {
-  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364) !important;
-  color: #f5f5f5;
-}
-/* Optional: add a slow gradient movement (dynamic sky) */
-@keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body {
-  animation: bgShift 15s ease infinite;
-  background-size: 200% 200%;
-}
-
-.theme-switch input:checked + .slider {
-  background: linear-gradient(45deg, #141e30, #243b55, #283e51);
-  box-shadow: 0 0 10px #90caf9;
-}
-
-/* ==========================
-   🌤️ FLOATING SKY OBJECT (REALTIME + PARALLAX)
-========================== */
-
 #sky-object {
   position: fixed;
   top: 0;
@@ -375,73 +272,51 @@ body {
   font-size: 3.5rem;
   top: 50%;
   transform: translateY(-50%);
+  opacity: 0;
   transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease, top 1s ease;
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
 }
 
-/* Sun styling */
 #sky-object .sun {
   color: #ffd93b;
-  opacity: 0;
 }
 
-/* Moon styling */
 #sky-object .moon {
   color: #cfd9df;
-  opacity: 0;
 }
 
-/* Active state (visible) */
 #sky-object .active {
   opacity: 1;
 }
 
-/* Glow and highlights */
 #sky-object .sun.active {
   text-shadow: 0 0 20px #ffe082, 0 0 30px #ffb300;
+  animation: skyFloat 6s ease-in-out infinite;
 }
 
 #sky-object .moon.active {
   text-shadow: 0 0 25px #90caf9, 0 0 40px #bbdefb;
+  animation: skyFloat 6s ease-in-out infinite;
 }
 
-/* Subtle floating up and down */
-@keyframes float {
+@keyframes skyFloat {
   0% { transform: translateY(-50%) translateY(0); }
   50% { transform: translateY(-50%) translateY(-10px); }
   100% { transform: translateY(-50%) translateY(0); }
 }
 
-#sky-object .sun.active,
-#sky-object .moon.active {
-  animation: float 6s ease-in-out infinite;
-}
+/* ==========================
+   📱 RESPONSIVE LAYOUT
+========================== */
 
-/* Animation movement (we’ll handle X position via JS) */
-#sky-object .active {
-  opacity: 1;
-}
-
-/* Subtle glow */
-#sky-object .sun.active {
-  text-shadow: 0 0 20px #ffe082;
-}
-
-#sky-object .moon.active {
-  text-shadow: 0 0 25px #90caf9;
-}
-
-#sky-object .sun,
-#sky-object .moon {
-  transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease;
-}
-
+/* No image should ever exceed its container */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* Constrain and center the page content */
 .top-container,
 .middle-container,
 .bottom-container {
@@ -450,6 +325,7 @@ img {
   padding: 0 20px;
 }
 
+/* Decorative clouds and mountain */
 .top-cloud,
 .bottom-cloud {
   max-width: 100px;
@@ -461,12 +337,14 @@ img {
   margin: 0 auto;
 }
 
+/* Profile picture */
 .profile-pic {
   max-width: 200px;
   border-radius: 50%;
   margin: 0 auto;
 }
 
+/* Skill icons */
 .programming,
 .photography,
 .graphic-designing,
@@ -475,17 +353,27 @@ img {
   margin: 0 auto 16px;
 }
 
+/* Tablet */
 @media (max-width: 768px) {
   h1 { font-size: 1.8rem; }
   .mountain { max-width: 240px; }
   .profile-pic { max-width: 160px; }
-  .programming, .photography, .graphic-designing, .song-writing { max-width: 110px; }
+  .programming,
+  .photography,
+  .graphic-designing,
+  .song-writing { max-width: 110px; }
 }
 
+/* Phone */
 @media (max-width: 480px) {
   h1 { font-size: 1.4rem; }
-  .top-container, .middle-container, .bottom-container { padding: 0 12px; }
+  .top-container,
+  .middle-container,
+  .bottom-container { padding: 0 12px; }
   .mountain { max-width: 180px; }
   .profile-pic { max-width: 120px; }
-  .programming, .photography, .graphic-designing, .song-writing { max-width: 90px; }
+  .programming,
+  .photography,
+  .graphic-designing,
+  .song-writing { max-width: 90px; }
 }
