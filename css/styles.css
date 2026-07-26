@@ -435,3 +435,57 @@ body {
 #sky-object .moon {
   transition: opacity 1.5s ease, transform 1.5s ease, left 2s ease;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.top-container,
+.middle-container,
+.bottom-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.top-cloud,
+.bottom-cloud {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.mountain {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.profile-pic {
+  max-width: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.programming,
+.photography,
+.graphic-designing,
+.song-writing {
+  max-width: 140px;
+  margin: 0 auto 16px;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  .mountain { max-width: 240px; }
+  .profile-pic { max-width: 160px; }
+  .programming, .photography, .graphic-designing, .song-writing { max-width: 110px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.4rem; }
+  .top-container, .middle-container, .bottom-container { padding: 0 12px; }
+  .mountain { max-width: 180px; }
+  .profile-pic { max-width: 120px; }
+  .programming, .photography, .graphic-designing, .song-writing { max-width: 90px; }
+}
